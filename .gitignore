@@ -1,0 +1,32 @@
+# ─────────────────────────────────────────────────────────────
+#  .gitignore — Thème Shopify Pokoinu
+#  Ces fichiers/dossiers NE sont PAS versionnés (Git les ignore).
+# ─────────────────────────────────────────────────────────────
+
+# --- Secrets : ne JAMAIS committer de token / mot de passe ---
+# (le token de déploiement Shopify vivra dans les "Secrets" GitHub, jamais ici)
+.env
+.env.*
+*.token
+.theme-access*
+
+# --- Cache local du CLI Shopify ---
+# Créé quand tu lances `shopify theme dev`. Propre à ta machine, inutile à versionner.
+.shopify/
+.shopifyignore
+
+# --- Dépendances Node (installées par `npm install`) ---
+# Regénérées automatiquement, très lourdes : on ne versionne que package.json / package-lock.json
+node_modules/
+
+# --- Fichiers système macOS / éditeurs ---
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# --- Logs & divers ---
+*.log
+npm-debug.log*
+yarn-error.log*
