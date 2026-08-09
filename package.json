@@ -1,0 +1,13 @@
+{
+  "name": "pokoinu-theme",
+  "version": "1.0.0",
+  "description": "Thème Shopify Horizon de la boutique Pokoinu",
+  "private": true,
+  "scripts": {
+    "check": "shopify theme check",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}

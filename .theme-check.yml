@@ -1,0 +1,4 @@
+# Configuration de Theme Check (linter officiel Shopify).
+# On part du jeu de règles "recommended" maintenu par Shopify : un bon équilibre
+# entre rigueur et tranquillité pour débuter. On pourra durcir plus tard.
+extends: theme-check:recommended

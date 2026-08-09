@@ -1,0 +1,2 @@
+echo "🔍 Theme Check avant commit..."
+npm run check
