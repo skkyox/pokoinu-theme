@@ -12,8 +12,8 @@
 
 # --- Cache local du CLI Shopify ---
 # Créé quand tu lances `shopify theme dev`. Propre à ta machine, inutile à versionner.
+# (NB : on NE met PAS .shopifyignore ici — ce fichier-là doit être versionné.)
 .shopify/
-.shopifyignore
 
 # --- Dépendances Node (installées par `npm install`) ---
 # Regénérées automatiquement, très lourdes : on ne versionne que package.json / package-lock.json

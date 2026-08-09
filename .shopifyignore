@@ -1,0 +1,12 @@
+# Fichiers de développement / dépôt : ne concernent PAS le thème Shopify,
+# donc on ne les envoie jamais à la boutique (push) et on les ignore au pull.
+.git/
+.github/
+.husky/
+node_modules/
+.gitignore
+.shopifyignore
+.theme-check.yml
+package.json
+package-lock.json
+README.md
