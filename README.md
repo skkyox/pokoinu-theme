@@ -132,6 +132,15 @@ Theme Access et recrée-en un.
 
 ---
 
+## ✅ Mise en vente (admin Shopify)
+
+La configuration de la boutique côté admin (paiements, pages légales, livraison, taxes,
+apps) se fait **à la main**. Une checklist ordonnée par priorité est disponible ici :
+
+👉 [`docs/checklist-mise-en-vente.md`](docs/checklist-mise-en-vente.md)
+
+---
+
 ## 📁 Structure d'un thème Shopify
 
 | Dossier | Contenu |
