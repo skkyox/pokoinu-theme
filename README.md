@@ -66,11 +66,11 @@ git pull
 git add .
 git commit -m "Décris ta modif (ex: change la couleur du bouton panier)"
 
-# Envoyer sur GitHub → déclenche un déploiement AUTO vers le thème de test
+# Envoyer sur GitHub → Shopify met à jour le thème de test tout seul
 git push
 ```
 
-1. Tu vérifies le rendu sur le **thème de préproduction** (aperçu, non publié).
+1. Tu vérifies le rendu sur le **thème de préproduction** (brouillon connecté à `staging`).
 2. Quand tout est bon, tu passes en production via une **Pull Request** `staging → main` :
 
 ```bash
@@ -78,7 +78,10 @@ git push
 gh pr create --base main --head staging --fill
 ```
 
-3. Tu fusionnes la PR sur GitHub → déploiement **AUTO** vers le thème publié. 🎉
+3. Tu fusionnes la PR sur GitHub → Shopify met à jour le **thème de prod** tout seul. 🎉
+
+> Le déploiement est assuré par l'**intégration native Shopify ↔ GitHub** (voir plus bas) :
+> pas de robot, pas de token, pas de commande. Un `git push` suffit.
 
 ---
 
@@ -97,38 +100,29 @@ shopify theme check
 
 ---
 
-## 🤖 Déploiement automatique (CI/CD)
+## 🔗 Déploiement : intégration native Shopify ↔ GitHub
 
-Géré par **GitHub Actions** (gratuit). Aucun déploiement manuel n'est nécessaire :
+Le déploiement est géré par la **fonction intégrée de Shopify** (gratuite, sans token,
+sans GitHub Actions). Chaque thème peut être **connecté à une branche** du dépôt :
 
-| Évènement | Action automatique |
-|---|---|
-| `push` sur `staging` | Theme Check, puis **push** vers le thème de préproduction (non publié) |
-| Fusion (merge) sur `main` | Theme Check, puis **déploiement** vers le thème publié (production) |
+| Branche GitHub | Thème Shopify connecté | Rôle |
+|---|---|---|
+| `main` | thème **« pokoinu-theme/main »** | Production (à **publier** quand prêt) |
+| `staging` | *(optionnel)* un 2ᵉ thème brouillon | Préproduction / aperçu |
 
-Si Theme Check échoue, le déploiement est **bloqué**.
+**Comment ça marche :**
+- Tu pousses du code sur une branche (`git push`) → Shopify **met à jour le thème connecté
+  automatiquement**.
+- Tu modifies ce thème dans l'**éditeur Shopify** → Shopify **recommite les changements sur
+  la branche**. La synchro va donc **dans les deux sens**.
+- Un thème connecté reste en **brouillon** tant que tu ne cliques pas sur **Publish** :
+  aucun risque de casser la boutique en ligne tant que tu n'as pas publié.
 
-> 🔐 Le déploiement utilise un **Theme Access token** stocké dans les *Secrets* GitHub
-> (jamais dans le code). Voir la section suivante.
+**Connecter une branche (une seule fois, dans l'admin) :**
+`Boutique en ligne → Thèmes → Ajouter un thème → Connecter depuis GitHub`, puis choisis le
+dépôt `pokoinu-theme` et la branche voulue (`main`, ou `staging`).
 
----
-
-## 🔐 Le token de déploiement (à créer une fois)
-
-Le robot GitHub a besoin d'un mot de passe pour parler à Shopify : le **Theme Access token**.
-
-1. Dans l'admin Shopify, installe l'app gratuite **Theme Access**
-   (`Apps` → rechercher « Theme Access » → installer).
-2. Crée un accès, indique ton email, tu reçois un **token** qui commence par `shptka_...`.
-3. Sur GitHub : `Settings` du repo → `Secrets and variables` → `Actions` → `New repository secret`.
-   - Nom : `SHOPIFY_CLI_THEME_TOKEN`
-   - Valeur : le token `shptka_...`
-4. Ajoute un second secret :
-   - Nom : `SHOPIFY_STORE`
-   - Valeur : `pokoinu.myshopify.com`
-
-⚠️ **Ne colle JAMAIS ce token dans un fichier du repo.** S'il fuite, révoque-le dans l'app
-Theme Access et recrée-en un.
+> 💡 Pas besoin de Theme Access token ni de secrets GitHub avec cette méthode.
 
 ---
 
