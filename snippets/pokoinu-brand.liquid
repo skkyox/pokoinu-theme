@@ -3,10 +3,13 @@
   Rendu dans le <head> de theme.liquid, après color-palette, pour que la marque
   soit disponible partout via les variables --poko-*.
 {% endcomment %}
+{% # theme-check-disable RemoteAsset %}
+{% comment %} Polices Google acceptées ici (rendu exact de la maquette). Optim possible plus tard : servir via CDN Shopify. {% endcomment %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@400;600;700&display=swap"
 >
+{% # theme-check-enable RemoteAsset %}
 {{ 'pokoinu.css' | asset_url | stylesheet_tag }}
