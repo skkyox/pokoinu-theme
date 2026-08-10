@@ -1,0 +1,65 @@
+<section class="poko-section poko-block poko-news">
+  <div class="poko-container">
+    <div class="poko-news__panel">
+      <h2 class="poko-h poko-news__title">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}
+        <p class="poko-news__sub">{{ section.settings.subheading }}</p>
+      {% endif %}
+      {% form 'customer', class: 'poko-news__form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        {% if form.posted_successfully? %}
+          <p class="poko-news__ok">Merci, tu fais partie de la meute ! 🐾</p>
+        {% else %}
+          <input
+            type="email"
+            name="contact[email]"
+            class="poko-news__input"
+            placeholder="ton@email.com"
+            required
+            aria-label="Adresse email"
+          >
+          <button type="submit" class="poko-btn">{{ section.settings.button_label }}</button>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .poko-news__panel {
+    background: var(--poko-sage-soft);
+    border-radius: var(--poko-radius-card);
+    padding: 28px 22px;
+    text-align: center;
+  }
+  .poko-news__title { font-size: 22px; }
+  .poko-news__sub { font-size: 14px; color: var(--poko-ink); margin: 8px 0 18px; }
+  .poko-news__form { display: flex; flex-direction: column; gap: 10px; max-width: 420px; margin-inline: auto; }
+  .poko-news__input {
+    height: 48px;
+    border: 1px solid #e3d8c8;
+    border-radius: var(--poko-radius-pill);
+    padding: 0 18px;
+    font-family: var(--poko-font-body);
+    font-size: 15px;
+    background: #fff;
+    color: var(--poko-ink);
+  }
+  .poko-news__ok { font-family: var(--poko-font-head); font-weight: 700; color: var(--poko-brown); }
+  @media (min-width: 700px) {
+    .poko-news__form { flex-direction: row; }
+    .poko-news__input { flex: 1; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko — Newsletter",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Rejoins la meute 🐾" },
+    { "type": "text", "id": "subheading", "label": "Sous-titre", "default": "Bons plans et nouveautés pour ton chien, direct dans ta boîte mail." },
+    { "type": "text", "id": "button_label", "label": "Bouton", "default": "Je m'inscris" }
+  ],
+  "presets": [{ "name": "Poko — Newsletter" }]
+}
+{% endschema %}

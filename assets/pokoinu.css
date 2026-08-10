@@ -81,3 +81,38 @@
     padding-inline: var(--poko-pad-desktop);
   }
 }
+
+/* Placeholder image (remplacé par de vraies photos dans l'éditeur) */
+.poko-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  font-family: var(--poko-font-body);
+  font-size: 12px;
+  color: var(--poko-brown);
+  background: repeating-linear-gradient(
+    45deg,
+    #efe6d8,
+    #efe6d8 10px,
+    #f5eee2 10px,
+    #f5eee2 20px
+  );
+  border-radius: var(--poko-radius-img);
+}
+.poko-ph--43 { aspect-ratio: 4 / 3; }
+.poko-ph--1 { aspect-ratio: 1 / 1; }
+
+.poko-eyebrow {
+  font-family: var(--poko-font-head);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--poko-coral);
+  margin: 0 0 8px;
+}
+
+/* Rythme vertical des sections d'accueil */
+.poko-block { padding-block: 40px; }
+@media (min-width: 1000px) { .poko-block { padding-block: 64px; } }

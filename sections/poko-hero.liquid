@@ -1,0 +1,68 @@
+<section class="poko-hero poko-section">
+  <div class="poko-container poko-hero__grid">
+    <div class="poko-hero__text">
+      {% if section.settings.eyebrow != blank %}
+        <p class="poko-eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      <h1 class="poko-h poko-hero__title">{{ section.settings.heading }}</h1>
+      {% if section.settings.subheading != blank %}
+        <p class="poko-hero__sub">{{ section.settings.subheading }}</p>
+      {% endif %}
+      {% if section.settings.button_label != blank %}
+        <a class="poko-btn" href="{{ section.settings.button_link | default: '#' }}">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+    <div class="poko-hero__media">
+      {% if section.settings.image != blank %}
+        <img
+          src="{{ section.settings.image | image_url: width: 900 }}"
+          alt="{{ section.settings.image.alt | escape }}"
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+          loading="eager"
+          class="poko-hero__img"
+        >
+      {% else %}
+        <div class="poko-ph poko-ph--43">{{ section.settings.image_caption }}</div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .poko-hero { background: var(--poko-cream); padding-block: 32px 40px; }
+  .poko-hero__grid { display: grid; gap: 24px; }
+  .poko-hero__title { font-size: 28px; }
+  .poko-hero__sub {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--poko-ink);
+    margin: 12px 0 20px;
+    max-width: 46ch;
+  }
+  .poko-hero__img { width: 100%; height: auto; border-radius: var(--poko-radius-img); display: block; }
+  @media (min-width: 1000px) {
+    .poko-hero { padding-block: 56px 72px; }
+    .poko-hero__grid { grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; }
+    .poko-hero__title { font-size: 44px; }
+    .poko-hero__sub { font-size: 17px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko — Hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Nouveau 🐾" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Tout pour chouchouter ton chien" },
+    { "type": "textarea", "id": "subheading", "label": "Sous-titre", "default": "Des indispensables mignons et malins, expédiés d'Europe. Chez toi en 2 à 7 jours." },
+    { "type": "text", "id": "button_label", "label": "Bouton — texte", "default": "Découvrir" },
+    { "type": "url", "id": "button_link", "label": "Bouton — lien" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_caption", "label": "Légende placeholder", "default": "photo — chien heureux + produit" }
+  ],
+  "presets": [{ "name": "Poko — Hero" }]
+}
+{% endschema %}

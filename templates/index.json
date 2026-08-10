@@ -1,285 +1,69 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */{
+{
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
-      "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "text_color": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
-          "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-custom",
-            "custom_button_background": "rgba(0,0,0,0)",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
-      "name": "t:names.hero",
+    "announce": {
+      "type": "poko-announcement",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "background_color": "rgba(0,0,0,0)",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "text": "🐾 Expédié d'Europe · Livraison 2–7 jours"
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
-      "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
-        },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
-          "settings": {
-            "product_card_gap": 4,
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
-        }
-      },
-      "name": "t:names.product_list",
+    "hero": {
+      "type": "poko-hero",
       "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "eyebrow": "Nouveau 🐾",
+        "heading": "Tout pour chouchouter ton chien",
+        "subheading": "Des indispensables mignons et malins, expédiés d'Europe. Chez toi en 2 à 7 jours.",
+        "button_label": "Découvrir",
+        "image_caption": "photo — chien heureux + produit"
+      }
+    },
+    "reassurance": {
+      "type": "poko-reassurance",
+      "blocks": {
+        "r1": { "type": "item", "settings": { "emoji": "🚚", "title": "Livraison rapide EU", "text": "2 à 7 jours" } },
+        "r2": { "type": "item", "settings": { "emoji": "🔒", "title": "Paiement sécurisé", "text": "CB, Apple Pay, PayPal" } },
+        "r3": { "type": "item", "settings": { "emoji": "↩️", "title": "Retours 14 jours", "text": "Satisfait ou remboursé" } }
+      },
+      "block_order": ["r1", "r2", "r3"]
+    },
+    "bestsellers": {
+      "type": "poko-bestsellers",
+      "settings": { "heading": "Nos best-sellers" },
+      "blocks": {
+        "p1": { "type": "product", "settings": { "image_caption": "photo — fontaine", "name": "Fontaine à eau pour chien", "price": "24,90€", "old_price": "34,90€", "rating": "4.8", "reviews": "128", "button_label": "Ajouter" } },
+        "p2": { "type": "product", "settings": { "image_caption": "photo — harnais", "name": "Harnais respirant", "price": "19,90€", "old_price": "", "rating": "4.7", "reviews": "96", "button_label": "Ajouter" } },
+        "p3": { "type": "product", "settings": { "image_caption": "photo — distributeur", "name": "Distributeur de croquettes", "price": "22,50€", "old_price": "29,90€", "rating": "4.6", "reviews": "74", "button_label": "Ajouter" } },
+        "p4": { "type": "product", "settings": { "image_caption": "photo — panier", "name": "Panier moelleux", "price": "32,90€", "old_price": "", "rating": "4.9", "reviews": "210", "button_label": "Ajouter" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4"]
+    },
+    "why": {
+      "type": "poko-why",
+      "settings": { "heading": "Pourquoi Poko Inu ?" },
+      "blocks": {
+        "w1": { "type": "point", "settings": { "emoji": "🇪🇺", "title": "Expédié d'Europe", "text": "Livraison rapide, pas d'attente interminable." } },
+        "w2": { "type": "point", "settings": { "emoji": "✅", "title": "Produits testés et approuvés", "text": "On sélectionne, on teste, on garde le meilleur." } },
+        "w3": { "type": "point", "settings": { "emoji": "🔒", "title": "Paiement 100% sécurisé", "text": "CB, Apple Pay et PayPal, en toute sérénité." } }
+      },
+      "block_order": ["w1", "w2", "w3"]
+    },
+    "reviews": {
+      "type": "poko-reviews",
+      "settings": { "heading": "Ils adorent (et leurs chiens aussi)" },
+      "blocks": {
+        "a1": { "type": "review", "settings": { "quote": "Livraison super rapide et mon chien adore. Je recommande !", "name": "Camille" } },
+        "a2": { "type": "review", "settings": { "quote": "Qualité au top et service client hyper réactif. Merci !", "name": "Hugo" } },
+        "a3": { "type": "review", "settings": { "quote": "Commandé lundi, reçu jeudi. Ma chienne ne quitte plus son panier 🐶", "name": "Léa" } }
+      },
+      "block_order": ["a1", "a2", "a3"]
+    },
+    "newsletter": {
+      "type": "poko-newsletter",
+      "settings": {
+        "heading": "Rejoins la meute 🐾",
+        "subheading": "Bons plans et nouveautés pour ton chien, direct dans ta boîte mail.",
+        "button_label": "Je m'inscris"
       }
     }
   },
-  "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
-  ]
+  "order": ["announce", "hero", "reassurance", "bestsellers", "why", "reviews", "newsletter"]
 }

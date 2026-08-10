@@ -1,0 +1,60 @@
+<section class="poko-section poko-reassure">
+  <div class="poko-container">
+    <div class="poko-reassure__card">
+      {% for block in section.blocks %}
+        <div class="poko-reassure__item" {{ block.shopify_attributes }}>
+          <span class="poko-reassure__ico">{{ block.settings.emoji }}</span>
+          <div>
+            <p class="poko-reassure__title">{{ block.settings.title }}</p>
+            <p class="poko-reassure__text">{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .poko-reassure { padding-block: 8px; }
+  .poko-reassure__card {
+    background: #fff;
+    border-radius: var(--poko-radius-card);
+    box-shadow: var(--poko-shadow-card);
+    padding: 18px;
+    display: grid;
+    gap: 14px;
+  }
+  .poko-reassure__item { display: flex; align-items: center; gap: 12px; }
+  .poko-reassure__ico {
+    flex: 0 0 auto;
+    width: 40px; height: 40px;
+    display: grid; place-items: center;
+    font-size: 20px;
+    background: var(--poko-sage-soft);
+    border-radius: 50%;
+  }
+  .poko-reassure__title { font-family: var(--poko-font-head); font-weight: 700; color: var(--poko-brown); margin: 0; font-size: 14px; }
+  .poko-reassure__text { margin: 2px 0 0; font-size: 13px; color: var(--poko-ink); }
+  @media (min-width: 1000px) {
+    .poko-reassure__card { grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 22px 28px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko — Réassurance",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Argument",
+      "settings": [
+        { "type": "text", "id": "emoji", "label": "Icône (emoji)", "default": "🚚" },
+        { "type": "text", "id": "title", "label": "Titre", "default": "Livraison rapide EU" },
+        { "type": "text", "id": "text", "label": "Texte", "default": "2 à 7 jours" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Poko — Réassurance" }]
+}
+{% endschema %}

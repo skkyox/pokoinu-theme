@@ -1,0 +1,58 @@
+<section class="poko-section poko-block poko-why">
+  <div class="poko-container">
+    <h2 class="poko-h poko-why__title">{{ section.settings.heading }}</h2>
+    <div class="poko-why__grid">
+      {% for block in section.blocks %}
+        <div class="poko-why__item" {{ block.shopify_attributes }}>
+          <span class="poko-why__ico">{{ block.settings.emoji }}</span>
+          <h3 class="poko-why__name">{{ block.settings.title }}</h3>
+          <p class="poko-why__text">{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .poko-why { background: var(--poko-cream); }
+  .poko-why__title { font-size: 22px; margin-bottom: 24px; text-align: center; }
+  .poko-why__grid { display: grid; gap: 20px; }
+  .poko-why__item { text-align: center; }
+  .poko-why__ico {
+    display: inline-grid; place-items: center;
+    width: 56px; height: 56px;
+    font-size: 26px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: var(--poko-shadow-card);
+    margin-bottom: 12px;
+  }
+  .poko-why__name { font-family: var(--poko-font-head); font-weight: 700; font-size: 16px; color: var(--poko-brown); margin: 0 0 6px; }
+  .poko-why__text { font-size: 13.5px; color: var(--poko-ink); margin: 0; line-height: 1.55; }
+  @media (min-width: 1000px) {
+    .poko-why__title { font-size: 30px; }
+    .poko-why__grid { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko — Pourquoi",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Pourquoi Poko Inu ?" }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Argument",
+      "settings": [
+        { "type": "text", "id": "emoji", "label": "Icône (emoji)", "default": "🇪🇺" },
+        { "type": "text", "id": "title", "label": "Titre", "default": "Expédié d'Europe" },
+        { "type": "textarea", "id": "text", "label": "Texte", "default": "Livraison rapide, pas d'attente interminable." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Poko — Pourquoi" }]
+}
+{% endschema %}

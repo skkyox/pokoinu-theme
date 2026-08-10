@@ -1,0 +1,54 @@
+<section class="poko-section poko-block poko-reviews">
+  <div class="poko-container">
+    <h2 class="poko-h poko-reviews__title">{{ section.settings.heading }}</h2>
+    <div class="poko-reviews__grid">
+      {% for block in section.blocks %}
+        <figure class="poko-reviews__card" {{ block.shopify_attributes }}>
+          <div class="poko-reviews__stars" aria-label="5 étoiles sur 5">★★★★★</div>
+          <blockquote class="poko-reviews__quote">{{ block.settings.quote }}</blockquote>
+          <figcaption class="poko-reviews__name">— {{ block.settings.name }}</figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .poko-reviews__title { font-size: 22px; margin-bottom: 24px; text-align: center; }
+  .poko-reviews__grid { display: grid; gap: 14px; }
+  .poko-reviews__card {
+    background: #fff;
+    border-radius: var(--poko-radius-card);
+    box-shadow: var(--poko-shadow-card);
+    padding: 18px 20px;
+    margin: 0;
+  }
+  .poko-reviews__stars { color: #f4b740; font-size: 15px; letter-spacing: 2px; }
+  .poko-reviews__quote { font-family: var(--poko-font-body); font-size: 14px; line-height: 1.6; color: var(--poko-ink); margin: 10px 0 12px; }
+  .poko-reviews__name { font-family: var(--poko-font-head); font-weight: 700; font-size: 13px; color: var(--poko-brown); }
+  @media (min-width: 1000px) {
+    .poko-reviews__title { font-size: 30px; }
+    .poko-reviews__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko — Avis clients",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Ils adorent (et leurs chiens aussi)" }
+  ],
+  "max_blocks": 9,
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Avis",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Avis", "default": "Livraison super rapide et mon chien adore. Je recommande !" },
+        { "type": "text", "id": "name", "label": "Prénom", "default": "Camille" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Poko — Avis clients" }]
+}
+{% endschema %}

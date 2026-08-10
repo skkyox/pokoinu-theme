@@ -1,0 +1,30 @@
+<div class="poko-announce">
+  <div class="poko-announce__inner">{{ section.settings.text }}</div>
+</div>
+
+{% stylesheet %}
+  .poko-announce {
+    background: var(--poko-coral);
+    color: var(--poko-cream);
+    font-family: var(--poko-font-body);
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+    padding: 9px 16px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko — Annonce",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Texte",
+      "default": "🐾 Expédié d'Europe · Livraison 2–7 jours"
+    }
+  ],
+  "presets": [{ "name": "Poko — Annonce" }]
+}
+{% endschema %}

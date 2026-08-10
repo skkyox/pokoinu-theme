@@ -1,0 +1,88 @@
+<section class="poko-section poko-block poko-best">
+  <div class="poko-container">
+    <h2 class="poko-h poko-best__title">{{ section.settings.heading }}</h2>
+    <div class="poko-best__grid">
+      {% for block in section.blocks %}
+        <article class="poko-card" {{ block.shopify_attributes }}>
+          <div class="poko-card__media">
+            {% if block.settings.image != blank %}
+              <img
+                src="{{ block.settings.image | image_url: width: 600 }}"
+                alt="{{ block.settings.name | escape }}"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+                loading="lazy"
+              >
+            {% else %}
+              <div class="poko-ph poko-ph--1">{{ block.settings.image_caption }}</div>
+            {% endif %}
+          </div>
+          <h3 class="poko-card__name">{{ block.settings.name }}</h3>
+          {% if block.settings.rating != blank %}
+            <p class="poko-card__rating">★ {{ block.settings.rating }}
+              {% if block.settings.reviews != blank %}<span>({{ block.settings.reviews }})</span>{% endif %}
+            </p>
+          {% endif %}
+          <p class="poko-card__price">
+            <span class="poko-card__now">{{ block.settings.price }}</span>
+            {% if block.settings.old_price != blank %}<span class="poko-card__old">{{ block.settings.old_price }}</span>{% endif %}
+          </p>
+          <a class="poko-btn poko-btn--full" href="{{ block.settings.link | default: '#' }}">{{ block.settings.button_label | default: 'Ajouter' }}</a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .poko-best__title { font-size: 22px; margin-bottom: 20px; }
+  .poko-best__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .poko-card {
+    background: #fff;
+    border-radius: var(--poko-radius-card);
+    box-shadow: var(--poko-shadow-card);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+  .poko-card__media img { width: 100%; height: auto; border-radius: var(--poko-radius-img); display: block; }
+  .poko-card__name { font-family: var(--poko-font-head); font-weight: 700; font-size: 15px; color: var(--poko-brown); margin: 12px 0 4px; }
+  .poko-card__rating { font-size: 12.5px; color: var(--poko-ink); margin: 0 0 6px; }
+  .poko-card__rating span { color: var(--poko-brown); }
+  .poko-card__price { margin: 0 0 12px; display: flex; align-items: baseline; gap: 8px; }
+  .poko-card__now { font-family: var(--poko-font-head); font-weight: 700; font-size: 17px; color: var(--poko-coral); }
+  .poko-card__old { font-size: 13px; color: #a89a8c; text-decoration: line-through; }
+  .poko-card .poko-btn { margin-top: auto; }
+  @media (min-width: 1000px) {
+    .poko-best__title { font-size: 30px; }
+    .poko-best__grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko — Best-sellers",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Nos best-sellers" }
+  ],
+  "max_blocks": 8,
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Produit",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "image_caption", "label": "Légende placeholder", "default": "photo — produit" },
+        { "type": "text", "id": "name", "label": "Nom", "default": "Produit pour chien" },
+        { "type": "text", "id": "price", "label": "Prix", "default": "24,90€" },
+        { "type": "text", "id": "old_price", "label": "Ancien prix (optionnel)" },
+        { "type": "text", "id": "rating", "label": "Note", "default": "4.8" },
+        { "type": "text", "id": "reviews", "label": "Nb d'avis", "default": "128" },
+        { "type": "text", "id": "button_label", "label": "Bouton", "default": "Ajouter" },
+        { "type": "url", "id": "link", "label": "Lien produit" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Poko — Best-sellers" }]
+}
+{% endschema %}
