@@ -26,6 +26,27 @@
   --poko-pad-desktop: 64px;
 }
 
+/* Rebranding du thème natif Horizon : polices + couleurs de boutons.
+ * Chargé après color-palette.liquid, donc ces surcharges gagnent. */
+:root {
+  --font-heading--family: "Quicksand", system-ui, "Trebuchet MS", sans-serif;
+  --font-accent--family: "Quicksand", system-ui, "Trebuchet MS", sans-serif;
+  --font-subheading--family: "Nunito", system-ui, sans-serif;
+  --font-body--family: "Nunito", system-ui, sans-serif;
+  --font-paragraph--family: "Nunito", system-ui, sans-serif;
+
+  --color-primary-button-background: #F0936F;
+  --color-primary-button-text: #FBF6EE;
+  --color-primary-button-border: #F0936F;
+  --color-primary-button-hover-background: #D97A56;
+  --color-primary-button-hover-text: #FBF6EE;
+  --color-primary-button-hover-border: #D97A56;
+
+  --color-selected-variant-background: #F0936F;
+  --color-selected-variant-text: #FBF6EE;
+  --color-selected-variant-border: #F0936F;
+}
+
 /* Primitives partagées */
 .poko-section {
   font-family: var(--poko-font-body);
