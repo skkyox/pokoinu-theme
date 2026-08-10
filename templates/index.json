@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -13,42 +22,170 @@
     "reassurance": {
       "type": "poko-reassurance",
       "blocks": {
-        "r1": { "type": "item", "settings": { "emoji": "🚚", "title": "Livraison rapide EU", "text": "2 à 7 jours" } },
-        "r2": { "type": "item", "settings": { "emoji": "🔒", "title": "Paiement sécurisé", "text": "CB, Apple Pay, PayPal" } },
-        "r3": { "type": "item", "settings": { "emoji": "↩️", "title": "Retours 14 jours", "text": "Satisfait ou remboursé" } }
+        "r1": {
+          "type": "item",
+          "settings": {
+            "emoji": "🚚",
+            "title": "Livraison rapide EU",
+            "text": "2 à 7 jours"
+          }
+        },
+        "r2": {
+          "type": "item",
+          "settings": {
+            "emoji": "🔒",
+            "title": "Paiement sécurisé",
+            "text": "CB, Apple Pay, PayPal"
+          }
+        },
+        "r3": {
+          "type": "item",
+          "settings": {
+            "emoji": "↩️",
+            "title": "Retours 14 jours",
+            "text": "Satisfait ou remboursé"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3"]
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "settings": {}
     },
     "bestsellers": {
       "type": "poko-bestsellers",
-      "settings": { "heading": "Nos best-sellers" },
       "blocks": {
-        "p1": { "type": "product", "settings": { "image_caption": "photo — fontaine", "name": "Fontaine à eau pour chien", "price": "24,90€", "old_price": "34,90€", "rating": "4.8", "reviews": "128", "button_label": "Ajouter" } },
-        "p2": { "type": "product", "settings": { "image_caption": "photo — harnais", "name": "Harnais respirant", "price": "19,90€", "old_price": "", "rating": "4.7", "reviews": "96", "button_label": "Ajouter" } },
-        "p3": { "type": "product", "settings": { "image_caption": "photo — distributeur", "name": "Distributeur de croquettes", "price": "22,50€", "old_price": "29,90€", "rating": "4.6", "reviews": "74", "button_label": "Ajouter" } },
-        "p4": { "type": "product", "settings": { "image_caption": "photo — panier", "name": "Panier moelleux", "price": "32,90€", "old_price": "", "rating": "4.9", "reviews": "210", "button_label": "Ajouter" } }
+        "p1": {
+          "type": "product",
+          "settings": {
+            "image_caption": "photo — fontaine",
+            "name": "Fontaine à eau pour chien",
+            "price": "24,90€",
+            "old_price": "34,90€",
+            "rating": "4.8",
+            "reviews": "128",
+            "button_label": "Ajouter"
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "image_caption": "photo — harnais",
+            "name": "Harnais respirant",
+            "price": "19,90€",
+            "old_price": "",
+            "rating": "4.7",
+            "reviews": "96",
+            "button_label": "Ajouter"
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "image_caption": "photo — distributeur",
+            "name": "Distributeur de croquettes",
+            "price": "22,50€",
+            "old_price": "29,90€",
+            "rating": "4.6",
+            "reviews": "74",
+            "button_label": "Ajouter"
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "image_caption": "photo — panier",
+            "name": "Panier moelleux",
+            "price": "32,90€",
+            "old_price": "",
+            "rating": "4.9",
+            "reviews": "210",
+            "button_label": "Ajouter"
+          }
+        }
       },
-      "block_order": ["p1", "p2", "p3", "p4"]
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ],
+      "settings": {
+        "heading": "Nos best-sellers"
+      }
     },
     "why": {
       "type": "poko-why",
-      "settings": { "heading": "Pourquoi Poko Inu ?" },
       "blocks": {
-        "w1": { "type": "point", "settings": { "emoji": "🇪🇺", "title": "Expédié d'Europe", "text": "Livraison rapide, pas d'attente interminable." } },
-        "w2": { "type": "point", "settings": { "emoji": "✅", "title": "Produits testés et approuvés", "text": "On sélectionne, on teste, on garde le meilleur." } },
-        "w3": { "type": "point", "settings": { "emoji": "🔒", "title": "Paiement 100% sécurisé", "text": "CB, Apple Pay et PayPal, en toute sérénité." } }
+        "w1": {
+          "type": "point",
+          "settings": {
+            "emoji": "🇪🇺",
+            "title": "Expédié d'Europe",
+            "text": "Livraison rapide, pas d'attente interminable."
+          }
+        },
+        "w2": {
+          "type": "point",
+          "settings": {
+            "emoji": "✅",
+            "title": "Produits testés et approuvés",
+            "text": "On sélectionne, on teste, on garde le meilleur."
+          }
+        },
+        "w3": {
+          "type": "point",
+          "settings": {
+            "emoji": "🔒",
+            "title": "Paiement 100% sécurisé",
+            "text": "CB, Apple Pay et PayPal, en toute sérénité."
+          }
+        }
       },
-      "block_order": ["w1", "w2", "w3"]
+      "block_order": [
+        "w1",
+        "w2",
+        "w3"
+      ],
+      "settings": {
+        "heading": "Pourquoi Poko Inu ?"
+      }
     },
     "reviews": {
       "type": "poko-reviews",
-      "settings": { "heading": "Ils adorent (et leurs chiens aussi)" },
       "blocks": {
-        "a1": { "type": "review", "settings": { "quote": "Livraison super rapide et mon chien adore. Je recommande !", "name": "Camille" } },
-        "a2": { "type": "review", "settings": { "quote": "Qualité au top et service client hyper réactif. Merci !", "name": "Hugo" } },
-        "a3": { "type": "review", "settings": { "quote": "Commandé lundi, reçu jeudi. Ma chienne ne quitte plus son panier 🐶", "name": "Léa" } }
+        "a1": {
+          "type": "review",
+          "settings": {
+            "quote": "Livraison super rapide et mon chien adore. Je recommande !",
+            "name": "Camille"
+          }
+        },
+        "a2": {
+          "type": "review",
+          "settings": {
+            "quote": "Qualité au top et service client hyper réactif. Merci !",
+            "name": "Hugo"
+          }
+        },
+        "a3": {
+          "type": "review",
+          "settings": {
+            "quote": "Commandé lundi, reçu jeudi. Ma chienne ne quitte plus son panier 🐶",
+            "name": "Léa"
+          }
+        }
       },
-      "block_order": ["a1", "a2", "a3"]
+      "block_order": [
+        "a1",
+        "a2",
+        "a3"
+      ],
+      "settings": {
+        "heading": "Ils adorent (et leurs chiens aussi)"
+      }
     },
     "newsletter": {
       "type": "poko-newsletter",
@@ -59,5 +196,12 @@
       }
     }
   },
-  "order": ["hero", "reassurance", "bestsellers", "why", "reviews", "newsletter"]
+  "order": [
+    "hero",
+    "reassurance",
+    "bestsellers",
+    "why",
+    "reviews",
+    "newsletter"
+  ]
 }
