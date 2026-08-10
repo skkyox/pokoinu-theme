@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="176" height="180" viewBox="0 0 88 90" role="img" aria-label="Mascotte shiba Pokoinu">
+  <path d="M20 6 L11 32 L34 27 Z" fill="#E3A06D"/>
+  <path d="M68 6 L77 32 L54 27 Z" fill="#E3A06D"/>
+  <circle cx="44" cy="48" r="30" fill="#E3A06D"/>
+  <ellipse cx="44" cy="59" rx="20" ry="15" fill="#FBF6EE"/>
+  <circle cx="25" cy="55" r="4.2" fill="#F0936F" opacity="0.85"/>
+  <circle cx="63" cy="55" r="4.2" fill="#F0936F" opacity="0.85"/>
+  <circle cx="33" cy="45" r="3.4" fill="#2E2A26"/>
+  <circle cx="55" cy="45" r="3.4" fill="#2E2A26"/>
+  <path d="M40 53 L48 53 L44 59 Z" fill="#2E2A26"/>
+  <path d="M44 59 Q39 64 34 61" fill="none" stroke="#2E2A26" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M44 59 Q49 64 54 61" fill="none" stroke="#2E2A26" stroke-width="1.6" stroke-linecap="round"/>
+</svg>

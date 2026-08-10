@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="90" viewBox="0 0 300 90" role="img" aria-label="Logo Poko Inu">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&amp;display=swap');
+  .wm{font-family:'Quicksand','Trebuchet MS',sans-serif;font-weight:700;font-size:40px;fill:#7A5A44}</style>
+  <text x="120" y="58" text-anchor="end" class="wm">Poko</text>
+  <g transform="translate(132,26) scale(0.82)">
+    <ellipse cx="23" cy="31" rx="12" ry="8.5" fill="#F0936F"/>
+    <circle cx="9" cy="18" r="4.2" fill="#F0936F"/>
+    <circle cx="18.5" cy="11" r="4.6" fill="#F0936F"/>
+    <circle cx="28" cy="11" r="4.6" fill="#F0936F"/>
+    <circle cx="37.5" cy="18" r="4.2" fill="#F0936F"/>
+  </g>
+  <text x="182" y="58" text-anchor="start" class="wm">Inu</text>
+</svg>

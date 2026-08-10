@@ -135,6 +135,14 @@ apps) se fait **à la main**. Une checklist ordonnée par priorité est disponib
 
 ---
 
+## 🐾 Marque
+
+Le guide de marque (couleurs, typographies, ton de voix, logos) est ici :
+
+👉 [`docs/guide-de-marque.md`](docs/guide-de-marque.md) — direction **Kawaii doux**.
+
+---
+
 ## 📁 Structure d'un thème Shopify
 
 | Dossier | Contenu |
