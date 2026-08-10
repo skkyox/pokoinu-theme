@@ -1,0 +1,12 @@
+{% comment %}
+  Fondation de marque Pokoinu : polices Google (Quicksand + Nunito) et tokens CSS.
+  Rendu dans le <head> de theme.liquid, après color-palette, pour que la marque
+  soit disponible partout via les variables --poko-*.
+{% endcomment %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@400;600;700&display=swap"
+>
+{{ 'pokoinu.css' | asset_url | stylesheet_tag }}

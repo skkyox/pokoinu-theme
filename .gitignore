@@ -26,6 +26,9 @@ Thumbs.db
 .idea/
 .vscode/
 
+# --- Graphe de connaissances (analyse locale, régénérable) ---
+graphify-out/
+
 # --- Logs & divers ---
 *.log
 npm-debug.log*
