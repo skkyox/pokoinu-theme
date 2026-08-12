@@ -1,0 +1,80 @@
+<section class="lp lp-solution">
+  <div class="lp-container lp-solution__inner">
+    <div class="lp-solution__head">
+      <h2 class="lp-h lp-solution__title">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}
+        <p class="lp-solution__sub">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="lp-solution__media">
+      {%- for i in (1..2) -%}
+        {%- assign key = 'image_' | append: i -%}
+        {%- assign img = section.settings[key] -%}
+        <div class="lp-solution__frame" style="--lp-frame-bg: {{ section.settings.image_bg }};">
+          {%- if img != blank -%}
+            <img class="lp-img" src="{{ img | image_url: width: 1000 }}" alt="{{ img.alt | escape }}" width="{{ img.width }}" height="{{ img.height }}" loading="lazy">
+          {%- else -%}
+            <div class="lp-solution__ph">{{ section.settings.image_caption }}</div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="lp-solution__cta">
+        <a class="lp-btn" href="{{ section.settings.button_link | default: '#' }}">
+          <svg class="lp-btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.5 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm9 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM5.2 15.6a1.9 1.9 0 1 0-1.4-2.3 1.9 1.9 0 0 0 1.4 2.3Zm13.6 0a1.9 1.9 0 1 0-1.4-2.3 1.9 1.9 0 0 0 1.4 2.3ZM12 13c-2.3 0-4.2 1.8-4.7 3.6-.4 1.5.8 2.7 2.3 2.4.8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c1.5.3 2.7-.9 2.3-2.4C16.2 14.8 14.3 13 12 13Z"/></svg>
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .lp-solution { background: var(--lp-grey); }
+  .lp-solution__inner { padding-block: 46px 50px; }
+  .lp-solution__head { text-align: center; max-width: 620px; margin: 0 auto; }
+  .lp-solution__title { font-size: 26px; line-height: 1.25; }
+  .lp-solution__title em { color: var(--lp-coral); font-style: italic; }
+  .lp-solution__sub { margin: 14px auto 0; font-size: 13px; line-height: 1.6; color: var(--lp-body); max-width: 56ch; }
+  .lp-solution__media { display: grid; gap: 18px; margin-top: 30px; }
+  .lp-solution__frame {
+    background: var(--lp-frame-bg, #E7502F);
+    border-radius: var(--lp-radius-img);
+    overflow: hidden;
+    aspect-ratio: 6 / 5;
+    display: grid;
+    place-items: center;
+  }
+  .lp-solution__frame .lp-img { width: 100%; height: 100%; object-fit: cover; }
+  .lp-solution__ph { color: rgba(255,255,255,.85); font-size: 12px; font-weight: 600; text-align: center; padding: 16px; }
+  .lp-solution__cta { display: flex; justify-content: center; margin-top: 30px; }
+
+  @media (min-width: 1000px) {
+    .lp-solution__inner { padding-block: 62px 66px; }
+    .lp-solution__title { font-size: 34px; }
+    .lp-solution__sub { font-size: 14px; }
+    .lp-solution__media { grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko LP — Solution",
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Titre", "default": "Notre solution <em>Poko Inu SafeTrack™</em>" },
+    { "type": "textarea", "id": "subheading", "label": "Sous-titre", "default": "Pensé pour s'adapter à votre chien et à vos besoins, le Poko Inu SafeTrack™ combine une conception ergonomique avec un système évolutif. Ajoutez les accessoires dont vous avez besoin et personnalisez son utilisation au fil du temps." },
+    { "type": "header", "content": "Visuels produit" },
+    { "type": "image_picker", "id": "image_1", "label": "Image 1" },
+    { "type": "image_picker", "id": "image_2", "label": "Image 2" },
+    { "type": "color", "id": "image_bg", "label": "Fond des visuels", "default": "#E7502F" },
+    { "type": "text", "id": "image_caption", "label": "Légende placeholder", "default": "photo — harnais SafeTrack" },
+    { "type": "header", "content": "Bouton" },
+    { "type": "text", "id": "button_label", "label": "Bouton — texte", "default": "Découvrez nos harnais SafeTrack™" },
+    { "type": "url", "id": "button_link", "label": "Bouton — lien" }
+  ],
+  "presets": [{ "name": "Poko LP — Solution" }]
+}
+{% endschema %}

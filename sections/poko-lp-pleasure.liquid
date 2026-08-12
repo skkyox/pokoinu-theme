@@ -1,0 +1,85 @@
+<section class="lp lp-pleasure">
+  <div class="lp-container lp-pleasure__grid">
+    <div class="lp-pleasure__text">
+      <h2 class="lp-h lp-pleasure__title">{{ section.settings.heading }}</h2>
+      {%- if section.settings.body != blank -%}
+        <div class="lp-pleasure__body lp-lead">{{ section.settings.body }}</div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <ul class="lp-pleasure__list">
+          {%- for block in section.blocks -%}
+            <li class="lp-pleasure__item" {{ block.shopify_attributes }}>
+              <span class="lp-pleasure__dot" aria-hidden="true"></span>
+              <span>{{ block.settings.text }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a class="lp-btn lp-btn--outline lp-pleasure__cta" href="{{ section.settings.button_link | default: '#' }}">
+          <svg class="lp-btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.5 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm9 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM5.2 15.6a1.9 1.9 0 1 0-1.4-2.3 1.9 1.9 0 0 0 1.4 2.3Zm13.6 0a1.9 1.9 0 1 0-1.4-2.3 1.9 1.9 0 0 0 1.4 2.3ZM12 13c-2.3 0-4.2 1.8-4.7 3.6-.4 1.5.8 2.7 2.3 2.4.8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c1.5.3 2.7-.9 2.3-2.4C16.2 14.8 14.3 13 12 13Z"/></svg>
+          {{ section.settings.button_label }}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="lp-pleasure__media">
+      {%- if section.settings.image != blank -%}
+        <img class="lp-img lp-pleasure__img" src="{{ section.settings.image | image_url: width: 1000 }}" alt="{{ section.settings.image.alt | escape }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" loading="lazy">
+      {%- else -%}
+        <div class="lp-ph lp-pleasure__img lp-ph--43">{{ section.settings.image_caption }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .lp-pleasure { background: var(--lp-bg); }
+  .lp-pleasure__grid { display: grid; gap: 30px; padding-block: 30px 50px; }
+  .lp-pleasure__title { font-size: 30px; line-height: 1.2; max-width: 15ch; }
+  .lp-pleasure__title em { color: var(--lp-coral); font-style: italic; }
+  .lp-pleasure__body { margin: 18px 0 0; font-size: 13.5px; max-width: 46ch; }
+  .lp-pleasure__body em { color: var(--lp-coral); font-style: italic; font-weight: 600; }
+  .lp-pleasure__list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 10px; }
+  .lp-pleasure__item { display: flex; align-items: flex-start; gap: 11px; font-size: 13px; color: var(--lp-body); line-height: 1.5; }
+  .lp-pleasure__dot { flex: none; width: 7px; height: 7px; margin-top: 6px; border-radius: 999px; background: var(--lp-coral); }
+  .lp-pleasure__cta { margin-top: 26px; }
+  .lp-pleasure__img { border-radius: var(--lp-radius-img); width: 100%; }
+
+  @media (min-width: 1000px) {
+    .lp-pleasure__grid { grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding-block: 44px 70px; }
+    .lp-pleasure__title { font-size: 38px; }
+    .lp-pleasure__body { font-size: 15px; }
+    .lp-pleasure__item { font-size: 14px; }
+    .lp-pleasure__img { aspect-ratio: 10 / 9; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko LP — Plaisir",
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Titre", "default": "Les promenades devraient <em>être un plaisir</em> pas une lutte" },
+    { "type": "richtext", "id": "body", "label": "Paragraphe", "default": "<p>Entre <em>tiraillements</em> et <em>pression sur le cou</em>, une simple sortie peut vite devenir stressante. <em>Poko Inu</em> repense le harnais pour offrir plus de <em>confort</em>, <em>contrôle</em> et de <em>sérénité</em> à chaque balade.</p>" },
+    { "type": "text", "id": "button_label", "label": "Bouton — texte", "default": "Découvrez notre solution SafeTrack™" },
+    { "type": "url", "id": "button_link", "label": "Bouton — lien" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_caption", "label": "Légende placeholder", "default": "photo — chien en promenade" }
+  ],
+  "blocks": [
+    { "type": "point", "name": "Point", "settings": [
+      { "type": "text", "id": "text", "label": "Texte", "default": "Point de liste." }
+    ] }
+  ],
+  "presets": [{
+    "name": "Poko LP — Plaisir",
+    "blocks": [
+      { "type": "point", "settings": { "text": "Une promenade peut vite devenir un bras de fer." } },
+      { "type": "point", "settings": { "text": "Chaque sortie devient alors source de tension et de frustration." } },
+      { "type": "point", "settings": { "text": "Pourtant, sortir devrait rester un moment de complicité." } }
+    ]
+  }]
+}
+{% endschema %}

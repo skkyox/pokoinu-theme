@@ -13,3 +13,38 @@
 >
 {% # theme-check-enable RemoteAsset %}
 {{ 'pokoinu.css' | asset_url | stylesheet_tag }}
+
+{% comment %} Quiet Sans — police de la maquette (landing page). Auto-hébergée. {% endcomment %}
+<style>
+  @font-face {
+    font-family: "Quiet Sans";
+    src: url({{ 'QuietSans-Regular.otf' | asset_url }}) format("opentype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Quiet Sans";
+    src: url({{ 'QuietSans-Italic.otf' | asset_url }}) format("opentype");
+    font-weight: 400; font-style: italic; font-display: swap;
+  }
+  @font-face {
+    font-family: "Quiet Sans";
+    src: url({{ 'QuietSans-SemiBold.otf' | asset_url }}) format("opentype");
+    font-weight: 600; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Quiet Sans";
+    src: url({{ 'QuietSans-Bold.otf' | asset_url }}) format("opentype");
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Quiet Sans";
+    src: url({{ 'QuietSans-BoldItalic.otf' | asset_url }}) format("opentype");
+    font-weight: 700; font-style: italic; font-display: swap;
+  }
+  @font-face {
+    font-family: "Quiet Sans";
+    src: url({{ 'QuietSans-ExtraBold.otf' | asset_url }}) format("opentype");
+    font-weight: 800; font-style: normal; font-display: swap;
+  }
+</style>
+{{ 'pokoinu-lp.css' | asset_url | stylesheet_tag }}

@@ -1,0 +1,89 @@
+<footer class="lp lp-footer" style="--lp-f-bg: {{ section.settings.background_color }};">
+  <div class="lp-container lp-container--wide lp-footer__inner">
+    <div class="lp-footer__cols">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'column' -%}
+          <div class="lp-footer__col" {{ block.shopify_attributes }}>
+            <p class="lp-footer__coltitle">{{ block.settings.title }}</p>
+            <ul class="lp-footer__links">
+              {%- if block.settings.menu != blank -%}
+                {%- for link in block.settings.menu.links -%}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {%- endfor -%}
+              {%- else -%}
+                {%- assign lines = block.settings.links_text | newline_to_br | split: '<br />' -%}
+                {%- for line in lines -%}
+                  {%- assign line = line | strip -%}
+                  {%- if line != blank -%}
+                    {%- assign parts = line | split: '|' -%}
+                    {%- assign label = parts[0] | strip -%}
+                    {%- assign url = parts[1] | default: '#' | strip -%}
+                    <li><a href="{{ url }}">{{ label }}</a></li>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endif -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <a class="lp-footer__brand" href="{{ routes.root_url }}">
+      <span class="lp-footer__paw" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm9 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM5.2 15.6a1.9 1.9 0 1 0-1.4-2.3 1.9 1.9 0 0 0 1.4 2.3Zm13.6 0a1.9 1.9 0 1 0-1.4-2.3 1.9 1.9 0 0 0 1.4 2.3ZM12 13c-2.3 0-4.2 1.8-4.7 3.6-.4 1.5.8 2.7 2.3 2.4.8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c1.5.3 2.7-.9 2.3-2.4C16.2 14.8 14.3 13 12 13Z"/></svg>
+      </span>
+      <span class="lp-footer__name">{{ section.settings.logo_text | default: shop.name }}</span>
+    </a>
+  </div>
+</footer>
+
+{% stylesheet %}
+  .lp-footer { background: var(--lp-f-bg, #F9F9F9); border-top: 1px solid var(--lp-border); }
+  .lp-footer__inner { padding-block: 44px 34px; }
+  .lp-footer__cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px 20px; }
+  .lp-footer__coltitle { margin: 0 0 14px; font-size: 13.5px; font-weight: 700; color: var(--lp-coral); }
+  .lp-footer__links { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .lp-footer__links a { font-size: 13.5px; color: var(--lp-body); text-decoration: none; transition: color .15s ease; }
+  .lp-footer__links a:hover { color: var(--lp-coral); }
+
+  .lp-footer__brand { display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 40px; text-decoration: none; }
+  .lp-footer__paw { display: inline-flex; color: var(--lp-coral); }
+  .lp-footer__paw svg { width: 22px; height: 22px; }
+  .lp-footer__name { font-size: 20px; font-weight: 800; color: var(--lp-coral); }
+
+  @media (min-width: 1000px) {
+    .lp-footer__inner { padding-block: 54px 40px; }
+    .lp-footer__cols { grid-template-columns: repeat(4, 1fr); gap: 40px; }
+    .lp-footer__brand { margin-top: 48px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko LP — Pied de page",
+  "settings": [
+    { "type": "text", "id": "logo_text", "label": "Logo (texte)", "default": "Poko Inu" },
+    { "type": "color", "id": "background_color", "label": "Fond", "default": "#F9F9F9" }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Colonne",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titre", "default": "Colonne" },
+        { "type": "link_list", "id": "menu", "label": "Menu (prioritaire si défini)" },
+        { "type": "textarea", "id": "links_text", "label": "Liens (un par ligne — Libellé|/url)", "default": "Lien 1\nLien 2" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Poko LP — Pied de page",
+    "blocks": [
+      { "type": "column", "settings": { "title": "Navigation", "links_text": "Nos produits|/collections/all\nHarnais\nJouets\nPaniers" } },
+      { "type": "column", "settings": { "title": "Informations", "links_text": "Contact\nFAQ" } },
+      { "type": "column", "settings": { "title": "Commande", "links_text": "Livraison\nRetours & remboursements\nSuivi de commande" } },
+      { "type": "column", "settings": { "title": "Informations légales", "links_text": "Mentions légales\nCGV\nPolitique de confidentialité\nPolitique de cookies" } }
+    ]
+  }]
+}
+{% endschema %}

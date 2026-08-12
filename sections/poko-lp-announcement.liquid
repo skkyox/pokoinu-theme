@@ -1,0 +1,51 @@
+{%- liquid
+  assign bg = section.settings.background_color
+  assign fg = section.settings.text_color
+-%}
+<div class="lp lp-announce" style="--lp-a-bg: {{ bg }}; --lp-a-fg: {{ fg }};">
+  <div class="lp-announce__inner">
+    {%- if section.settings.show_icon -%}
+      <svg class="lp-announce__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 3l7 3v5c0 4.2-2.9 7.4-7 8.5C7.9 18.4 5 15.2 5 11V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M9.2 11.8l1.9 1.9 3.7-3.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    {%- endif -%}
+    <span class="lp-announce__text">{{ section.settings.text }}</span>
+  </div>
+</div>
+
+{% stylesheet %}
+  .lp-announce {
+    background: var(--lp-a-bg, #ED573A);
+    color: var(--lp-a-fg, #FFFFFF);
+  }
+  .lp-announce__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 9px 16px;
+    text-align: center;
+  }
+  .lp-announce__icon { width: 16px; height: 16px; flex: none; }
+  .lp-announce__text {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko LP — Barre d'annonce",
+  "settings": [
+    { "type": "text", "id": "text", "label": "Texte", "default": "30 jours satisfait ou remboursé" },
+    { "type": "checkbox", "id": "show_icon", "label": "Afficher l'icône bouclier", "default": true },
+    { "type": "color", "id": "background_color", "label": "Fond", "default": "#ED573A" },
+    { "type": "color", "id": "text_color", "label": "Texte", "default": "#FFFFFF" }
+  ],
+  "presets": [{ "name": "Poko LP — Barre d'annonce" }]
+}
+{% endschema %}

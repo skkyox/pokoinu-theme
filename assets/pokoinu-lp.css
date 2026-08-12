@@ -1,0 +1,147 @@
+/* Pokoinu — Landing Page (maquette SafeTrack™)
+ * Système de tokens + primitives isolés sous la classe .lp
+ * (n'affecte pas le brand kawaii des autres pages).
+ * Les @font-face Quiet Sans sont déclarées dans snippets/pokoinu-brand.liquid
+ * (via asset_url) et chargées avant cette feuille.
+ */
+.lp {
+  --lp-coral: #ED573A;
+  --lp-coral-dark: #D8482D;
+  --lp-coral-tint: #FBECE8;
+  --lp-coral-tint-2: #F8ECEA;
+  --lp-ink: #1B1B1B;
+  --lp-body: #4B4B4B;
+  --lp-muted: #7A7A7A;
+  --lp-bg: #F9F9F9;
+  --lp-grey: #F5F5F5;
+  --lp-border: #ECECEC;
+  --lp-border-strong: #E2E2E2;
+  --lp-white: #FFFFFF;
+  --lp-star: #ED573A;
+
+  --lp-font: "Quiet Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --lp-container: 1200px;
+  --lp-container-wide: 1400px;
+  --lp-pad: 24px;
+  --lp-pad-lg: 40px;
+
+  --lp-radius-img: 18px;
+  --lp-radius-card: 16px;
+  --lp-radius-chip: 14px;
+  --lp-radius-pill: 999px;
+
+  --lp-shadow-card: 0 6px 24px rgba(27, 27, 27, 0.06);
+
+  font-family: var(--lp-font);
+  color: var(--lp-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Layout ---- */
+.lp-container {
+  max-width: var(--lp-container);
+  margin-inline: auto;
+  padding-inline: var(--lp-pad);
+}
+.lp-container--wide { max-width: var(--lp-container-wide); }
+
+@media (min-width: 1000px) {
+  .lp-container { padding-inline: var(--lp-pad-lg); }
+}
+
+/* ---- Typographie ---- */
+.lp-h {
+  font-family: var(--lp-font);
+  font-weight: 800;
+  color: var(--lp-ink);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.lp-em { color: var(--lp-coral); font-style: italic; font-weight: 800; }
+
+.lp-eyebrow {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--lp-coral);
+  margin: 0 0 12px;
+}
+
+.lp-lead {
+  color: var(--lp-body);
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* ---- Boutons ---- */
+.lp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-family: var(--lp-font);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--lp-white);
+  background: var(--lp-coral);
+  border: 1.5px solid var(--lp-coral);
+  border-radius: var(--lp-radius-pill);
+  padding: 15px 26px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.05s ease;
+}
+.lp-btn:hover { background: var(--lp-coral-dark); border-color: var(--lp-coral-dark); }
+.lp-btn:active { transform: scale(0.99); }
+
+.lp-btn--outline {
+  color: var(--lp-coral);
+  background: transparent;
+  border-color: var(--lp-coral);
+}
+.lp-btn--outline:hover { background: var(--lp-coral); color: var(--lp-white); }
+
+.lp-btn__icon { width: 17px; height: 17px; flex: none; }
+
+/* ---- Chip / pill ---- */
+.lp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--lp-coral);
+  background: var(--lp-coral-tint-2);
+  border-radius: var(--lp-radius-pill);
+  padding: 6px 14px;
+}
+
+/* ---- Placeholder image ---- */
+.lp-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lp-muted);
+  background:
+    repeating-linear-gradient(45deg, #efefef, #efefef 12px, #f6f6f6 12px, #f6f6f6 24px);
+  border-radius: var(--lp-radius-img);
+}
+.lp-ph--43 { aspect-ratio: 4 / 3; }
+.lp-ph--169 { aspect-ratio: 16 / 9; }
+.lp-ph--45 { aspect-ratio: 4 / 5; }
+.lp-ph--1 { aspect-ratio: 1 / 1; }
+.lp-img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---- Étoiles ---- */
+.lp-stars { display: inline-flex; gap: 2px; color: var(--lp-star); line-height: 1; }
+.lp-stars svg { width: 15px; height: 15px; }

@@ -1,0 +1,82 @@
+<section class="lp lp-faq">
+  <div class="lp-container lp-faq__inner">
+    <h2 class="lp-h lp-faq__title">{{ section.settings.heading }}</h2>
+
+    <div class="lp-faq__list">
+      {%- for block in section.blocks -%}
+        <details class="lp-faq__item"{% if block.settings.open %} open{% endif %} {{ block.shopify_attributes }}>
+          <summary class="lp-faq__q">
+            <span>{{ block.settings.question }}</span>
+            <svg class="lp-faq__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <div class="lp-faq__a">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .lp-faq { background: var(--lp-bg); }
+  .lp-faq__inner { padding-block: 40px 54px; }
+  .lp-faq__title { font-size: 26px; text-align: center; margin-bottom: 28px; }
+  .lp-faq__title em { color: var(--lp-coral); font-style: italic; }
+  .lp-faq__list { max-width: 940px; margin: 0 auto; display: grid; gap: 14px; }
+
+  .lp-faq__item {
+    background: var(--lp-white);
+    border: 1px solid var(--lp-border);
+    border-radius: var(--lp-radius-card);
+    padding: 4px 22px;
+  }
+  .lp-faq__q {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 16px 0;
+    font-size: 15.5px; font-weight: 700; color: var(--lp-ink);
+    cursor: pointer; list-style: none;
+  }
+  .lp-faq__q::-webkit-details-marker { display: none; }
+  .lp-faq__chev { width: 20px; height: 20px; flex: none; color: var(--lp-muted); transition: transform .2s ease; }
+  .lp-faq__a {
+    padding: 0 0 18px; margin-top: -2px;
+    font-size: 13px; line-height: 1.6; color: var(--lp-body); max-width: 78ch;
+  }
+  .lp-faq__a p { margin: 0 0 8px; }
+  .lp-faq__a p:last-child { margin-bottom: 0; }
+
+  @media (min-width: 1000px) {
+    .lp-faq__inner { padding-block: 58px 72px; }
+    .lp-faq__title { font-size: 32px; margin-bottom: 34px; }
+    .lp-faq__q { font-size: 16px; }
+    .lp-faq__a { font-size: 13.5px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko LP — FAQ",
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Titre", "default": "Des questions ? Nous avons la <em>réponse</em> !" }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Votre question ?" },
+        { "type": "richtext", "id": "answer", "label": "Réponse", "default": "<p>Votre réponse.</p>" },
+        { "type": "checkbox", "id": "open", "label": "Ouvert par défaut", "default": true }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Poko LP — FAQ",
+    "blocks": [
+      { "type": "qa", "settings": { "question": "Le SafeTrack™ convient-il à tous les chiens ?", "answer": "<p>Oui, le SafeTrack™ est conçu pour s'adapter à différentes morphologies grâce à ses réglages. Il est important de choisir la taille adaptée à votre chien en consultant notre guide des tailles.</p>" } },
+      { "type": "qa", "settings": { "question": "Mon chien tire beaucoup, est-ce adapté ?", "answer": "<p>Le SafeTrack™ a été pensé pour offrir davantage de contrôle lors des promenades, tout en limitant les sensations de tiraillement lorsque votre chien avance ou change de direction.</p>" } },
+      { "type": "qa", "settings": { "question": "Est-il confortable pour mon chien ?", "answer": "<p>Oui. Sa conception répartit la pression sur le corps plutôt que de concentrer les tensions au niveau du cou, pour des promenades plus agréables.</p>" } },
+      { "type": "qa", "settings": { "question": "Comment choisir la bonne taille ?", "answer": "<p>Mesurez le tour de poitrail de votre chien à l'endroit indiqué dans notre guide des tailles, puis choisissez la taille correspondante. En cas d'hésitation entre deux tailles, privilégiez celle qui offre le meilleur ajustement sans comprimer votre chien.</p>" } }
+    ]
+  }]
+}
+{% endschema %}

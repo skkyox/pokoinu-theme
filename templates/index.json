@@ -10,198 +10,79 @@
 {
   "sections": {
     "hero": {
-      "type": "poko-hero",
+      "type": "poko-lp-hero",
+      "blocks": {
+        "c1": { "type": "chip", "settings": { "icon": "pull", "title": "Anti-traction", "text": "Une conception pensée pour limiter les tiraillements et vous offrir un meilleur contrôle." } },
+        "c2": { "type": "chip", "settings": { "icon": "choke", "title": "Anti-étouffement", "text": "Contrairement à un collier, le harnais répartit la traction sur le corps pour réduire la pression sur le cou." } },
+        "c3": { "type": "chip", "settings": { "icon": "airtag", "title": "AirTag Ready", "text": "Un emplacement spécialement conçu pour ajouter un AirTag afin de faciliter la localisation de votre compagnon." } }
+      },
+      "block_order": ["c1", "c2", "c3"],
       "settings": {
-        "eyebrow": "Nouveau 🐾",
-        "heading": "Tout pour chouchouter ton chien",
-        "subheading": "Des indispensables mignons et malins, expédiés d'Europe. Chez toi en 2 à 7 jours.",
-        "button_label": "Découvrir",
-        "image_caption": "photo — chien heureux + produit"
+        "rating_label": "4,5 notés par vous",
+        "rating": 4.5,
+        "heading": "Le <em>harnais</em> pensé pour des promenades plus <em>sereines</em>",
+        "subheading": "<p>Le harnais <em>anti-traction</em> avec emplacement intégré pour <em>AirTag</em>, conçu pour vous offrir une tranquillité d'esprit supplémentaire à chaque <em>promenade</em>.</p>",
+        "button_label": "Découvrez nos harnais SafeTrack™"
       }
     },
-    "reassurance": {
-      "type": "poko-reassurance",
+    "pleasure": {
+      "type": "poko-lp-pleasure",
       "blocks": {
-        "r1": {
-          "type": "item",
-          "settings": {
-            "emoji": "🚚",
-            "title": "Livraison rapide EU",
-            "text": "2 à 7 jours"
-          }
-        },
-        "r2": {
-          "type": "item",
-          "settings": {
-            "emoji": "🔒",
-            "title": "Paiement sécurisé",
-            "text": "CB, Apple Pay, PayPal"
-          }
-        },
-        "r3": {
-          "type": "item",
-          "settings": {
-            "emoji": "↩️",
-            "title": "Retours 14 jours",
-            "text": "Satisfait ou remboursé"
-          }
-        }
+        "p1": { "type": "point", "settings": { "text": "Une promenade peut vite devenir un bras de fer." } },
+        "p2": { "type": "point", "settings": { "text": "Chaque sortie devient alors source de tension et de frustration." } },
+        "p3": { "type": "point", "settings": { "text": "Pourtant, sortir devrait rester un moment de complicité." } }
       },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3"
-      ],
-      "settings": {}
-    },
-    "bestsellers": {
-      "type": "poko-bestsellers",
-      "blocks": {
-        "p1": {
-          "type": "product",
-          "settings": {
-            "image_caption": "photo — fontaine",
-            "name": "Fontaine à eau pour chien",
-            "price": "24,90€",
-            "old_price": "34,90€",
-            "rating": "4.8",
-            "reviews": "128",
-            "button_label": "Ajouter"
-          }
-        },
-        "p2": {
-          "type": "product",
-          "settings": {
-            "image_caption": "photo — harnais",
-            "name": "Harnais respirant",
-            "price": "19,90€",
-            "old_price": "",
-            "rating": "4.7",
-            "reviews": "96",
-            "button_label": "Ajouter"
-          }
-        },
-        "p3": {
-          "type": "product",
-          "settings": {
-            "image_caption": "photo — distributeur",
-            "name": "Distributeur de croquettes",
-            "price": "22,50€",
-            "old_price": "29,90€",
-            "rating": "4.6",
-            "reviews": "74",
-            "button_label": "Ajouter"
-          }
-        },
-        "p4": {
-          "type": "product",
-          "settings": {
-            "image_caption": "photo — panier",
-            "name": "Panier moelleux",
-            "price": "32,90€",
-            "old_price": "",
-            "rating": "4.9",
-            "reviews": "210",
-            "button_label": "Ajouter"
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4"
-      ],
+      "block_order": ["p1", "p2", "p3"],
       "settings": {
-        "heading": "Nos best-sellers"
+        "heading": "Les promenades devraient <em>être un plaisir</em> pas une lutte",
+        "body": "<p>Entre <em>tiraillements</em> et <em>pression sur le cou</em>, une simple sortie peut vite devenir stressante. <em>Poko Inu</em> repense le harnais pour offrir plus de <em>confort</em>, <em>contrôle</em> et de <em>sérénité</em> à chaque balade.</p>",
+        "button_label": "Découvrez notre solution SafeTrack™"
       }
     },
-    "why": {
-      "type": "poko-why",
-      "blocks": {
-        "w1": {
-          "type": "point",
-          "settings": {
-            "emoji": "🇪🇺",
-            "title": "Expédié d'Europe",
-            "text": "Livraison rapide, pas d'attente interminable."
-          }
-        },
-        "w2": {
-          "type": "point",
-          "settings": {
-            "emoji": "✅",
-            "title": "Produits testés et approuvés",
-            "text": "On sélectionne, on teste, on garde le meilleur."
-          }
-        },
-        "w3": {
-          "type": "point",
-          "settings": {
-            "emoji": "🔒",
-            "title": "Paiement 100% sécurisé",
-            "text": "CB, Apple Pay et PayPal, en toute sérénité."
-          }
-        }
-      },
-      "block_order": [
-        "w1",
-        "w2",
-        "w3"
-      ],
+    "solution": {
+      "type": "poko-lp-solution",
       "settings": {
-        "heading": "Pourquoi Poko Inu ?"
+        "heading": "Notre solution <em>Poko Inu SafeTrack™</em>",
+        "subheading": "Pensé pour s'adapter à votre chien et à vos besoins, le Poko Inu SafeTrack™ combine une conception ergonomique avec un système évolutif. Ajoutez les accessoires dont vous avez besoin et personnalisez son utilisation au fil du temps.",
+        "button_label": "Découvrez nos harnais SafeTrack™"
       }
     },
-    "reviews": {
-      "type": "poko-reviews",
-      "blocks": {
-        "a1": {
-          "type": "review",
-          "settings": {
-            "quote": "Livraison super rapide et mon chien adore. Je recommande !",
-            "name": "Camille"
-          }
-        },
-        "a2": {
-          "type": "review",
-          "settings": {
-            "quote": "Qualité au top et service client hyper réactif. Merci !",
-            "name": "Hugo"
-          }
-        },
-        "a3": {
-          "type": "review",
-          "settings": {
-            "quote": "Commandé lundi, reçu jeudi. Ma chienne ne quitte plus son panier 🐶",
-            "name": "Léa"
-          }
-        }
-      },
-      "block_order": [
-        "a1",
-        "a2",
-        "a3"
-      ],
+    "products": {
+      "type": "poko-lp-products",
       "settings": {
-        "heading": "Ils adorent (et leurs chiens aussi)"
+        "heading": "Tout nos produits pour chiens",
+        "badge": "Soldes d'été !",
+        "products_to_show": 4,
+        "default_rating": 4.5,
+        "button_label": "Voir tous nos produits"
       }
     },
-    "newsletter": {
-      "type": "poko-newsletter",
+    "action": {
+      "type": "poko-lp-action",
+      "blocks": {
+        "v1": { "type": "video", "settings": { "category": "En ville", "title": "Plus de contrôle, moins de tension", "text": "Dans les rues animées, gardez votre chien près de vous tout en lui laissant la liberté de marcher confortablement." } },
+        "v2": { "type": "video", "settings": { "category": "En pleine nature", "title": "La liberté de découvrir", "text": "Sentiers, parcs ou chemins de campagne : SafeTrack™ accompagne votre chien dans toutes ses explorations." } },
+        "v3": { "type": "video", "settings": { "category": "En mouvement", "title": "Confort à chaque foulée", "text": "Pensé pour suivre les mouvements de votre chien sans le gêner, même lorsqu'il accélère ou change de direction." } },
+        "v4": { "type": "video", "settings": { "category": "Au quotidien", "title": "Des promenades plus sereines", "text": "Parce que chaque sortie ne devrait pas être une épreuve, profitez simplement du moment passé ensemble." } }
+      },
+      "block_order": ["v1", "v2", "v3", "v4"],
       "settings": {
-        "heading": "Rejoins la meute 🐾",
-        "subheading": "Bons plans et nouveautés pour ton chien, direct dans ta boîte mail.",
-        "button_label": "Je m'inscris"
+        "heading": "Notre <em>Poko Inu SafeTrack™</em> en action"
+      }
+    },
+    "faq": {
+      "type": "poko-lp-faq",
+      "blocks": {
+        "q1": { "type": "qa", "settings": { "question": "Le SafeTrack™ convient-il à tous les chiens ?", "answer": "<p>Oui, le SafeTrack™ est conçu pour s'adapter à différentes morphologies grâce à ses réglages. Il est important de choisir la taille adaptée à votre chien en consultant notre guide des tailles.</p>", "open": true } },
+        "q2": { "type": "qa", "settings": { "question": "Mon chien tire beaucoup, est-ce adapté ?", "answer": "<p>Le SafeTrack™ a été pensé pour offrir davantage de contrôle lors des promenades, tout en limitant les sensations de tiraillement lorsque votre chien avance ou change de direction.</p>", "open": true } },
+        "q3": { "type": "qa", "settings": { "question": "Est-il confortable pour mon chien ?", "answer": "<p>Oui. Sa conception répartit la pression sur le corps plutôt que de concentrer les tensions au niveau du cou, pour des promenades plus agréables.</p>", "open": true } },
+        "q4": { "type": "qa", "settings": { "question": "Comment choisir la bonne taille ?", "answer": "<p>Mesurez le tour de poitrail de votre chien à l'endroit indiqué dans notre guide des tailles, puis choisissez la taille correspondante. En cas d'hésitation entre deux tailles, privilégiez celle qui offre le meilleur ajustement sans comprimer votre chien.</p>", "open": true } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": {
+        "heading": "Des questions ? Nous avons la <em>réponse</em> !"
       }
     }
   },
-  "order": [
-    "hero",
-    "reassurance",
-    "bestsellers",
-    "why",
-    "reviews",
-    "newsletter"
-  ]
+  "order": ["hero", "pleasure", "solution", "products", "action", "faq"]
 }

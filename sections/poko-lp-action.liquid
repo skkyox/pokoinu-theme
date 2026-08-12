@@ -1,0 +1,100 @@
+<section class="lp lp-action">
+  <div class="lp-container lp-container--wide lp-action__inner">
+    <h2 class="lp-h lp-action__title">{{ section.settings.heading }}</h2>
+
+    <div class="lp-action__grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign tag = 'div'
+          assign href = ''
+          if block.settings.video_url != blank
+            assign tag = 'a'
+            assign href = block.settings.video_url
+          endif
+        -%}
+        <{{ tag }} class="lp-vcard"{% if href != blank %} href="{{ href }}" target="_blank" rel="noopener"{% endif %} {{ block.shopify_attributes }}>
+          <div class="lp-vcard__media">
+            {%- if block.settings.image != blank -%}
+              <img class="lp-img" src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.image.alt | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy">
+            {%- else -%}
+              <div class="lp-vcard__ph">{{ block.settings.image_caption }}</div>
+            {%- endif -%}
+            <span class="lp-vcard__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="rgba(255,255,255,.9)"/><path d="M10 8.5l6 3.5-6 3.5v-7Z" fill="#1B1B1B"/></svg>
+            </span>
+          </div>
+          <div class="lp-vcard__body">
+            {%- if block.settings.category != blank -%}
+              <span class="lp-vcard__tag">{{ block.settings.category }}</span>
+            {%- endif -%}
+            <p class="lp-vcard__title">{{ block.settings.title }}</p>
+            <p class="lp-vcard__text">{{ block.settings.text }}</p>
+          </div>
+        </{{ tag }}>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .lp-action { background: var(--lp-bg); }
+  .lp-action__inner { padding-block: 40px 46px; }
+  .lp-action__title { font-size: 26px; text-align: center; }
+  .lp-action__title em { color: var(--lp-coral); font-style: italic; }
+  .lp-action__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 18px; margin-top: 30px; }
+
+  .lp-vcard { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+  .lp-vcard__media { position: relative; border-radius: var(--lp-radius-img); overflow: hidden; aspect-ratio: 3 / 5; background: var(--lp-grey); }
+  .lp-vcard__media .lp-img { width: 100%; height: 100%; object-fit: cover; }
+  .lp-vcard__ph { display: grid; place-items: center; height: 100%; font-size: 12px; color: var(--lp-muted); text-align: center; padding: 12px; }
+  .lp-vcard__play { position: absolute; inset: 0; margin: auto; width: 46px; height: 46px; display: grid; place-items: center; }
+  .lp-vcard__play svg { width: 46px; height: 46px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.25)); }
+  .lp-vcard__tag {
+    display: inline-flex; align-self: flex-start;
+    font-size: 11px; font-weight: 700; color: var(--lp-coral);
+    background: var(--lp-coral-tint-2);
+    border-radius: var(--lp-radius-pill); padding: 4px 11px;
+    margin-bottom: 10px;
+  }
+  .lp-vcard__body { padding-top: 14px; display: flex; flex-direction: column; align-items: flex-start; }
+  .lp-vcard__title { margin: 0 0 6px; font-size: 15px; font-weight: 700; color: var(--lp-ink); line-height: 1.3; }
+  .lp-vcard__text { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--lp-body); }
+
+  @media (min-width: 1000px) {
+    .lp-action__inner { padding-block: 58px 64px; }
+    .lp-action__title { font-size: 32px; }
+    .lp-action__grid { grid-template-columns: repeat(4, 1fr); gap: 26px; margin-top: 42px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko LP — En action",
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Titre", "default": "Notre <em>Poko Inu SafeTrack™</em> en action" }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Carte vidéo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Vignette" },
+        { "type": "text", "id": "image_caption", "label": "Légende placeholder", "default": "photo — chien" },
+        { "type": "url", "id": "video_url", "label": "Lien vidéo" },
+        { "type": "text", "id": "category", "label": "Catégorie", "default": "En ville" },
+        { "type": "text", "id": "title", "label": "Titre", "default": "Titre de la carte" },
+        { "type": "textarea", "id": "text", "label": "Texte", "default": "Description courte de la scène." }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Poko LP — En action",
+    "blocks": [
+      { "type": "video", "settings": { "category": "En ville", "title": "Plus de contrôle, moins de tension", "text": "Dans les rues animées, gardez votre chien près de vous tout en lui laissant la liberté de marcher confortablement." } },
+      { "type": "video", "settings": { "category": "En pleine nature", "title": "La liberté de découvrir", "text": "Sentiers, parcs ou chemins de campagne : SafeTrack™ accompagne votre chien dans toutes ses explorations." } },
+      { "type": "video", "settings": { "category": "En mouvement", "title": "Confort à chaque foulée", "text": "Pensé pour suivre les mouvements de votre chien sans le gêner, même lorsqu'il accélère ou change de direction." } },
+      { "type": "video", "settings": { "category": "Au quotidien", "title": "Des promenades plus sereines", "text": "Parce que chaque sortie ne devrait pas être une épreuve, profitez simplement du moment passé ensemble." } }
+    ]
+  }]
+}
+{% endschema %}

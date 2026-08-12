@@ -1,0 +1,136 @@
+{%- liquid
+  assign coll = collections[section.settings.collection]
+  assign limit = section.settings.products_to_show
+  assign default_rating = section.settings.default_rating
+-%}
+<section class="lp lp-products">
+  <div class="lp-container lp-container--wide lp-products__inner">
+    <div class="lp-products__head">
+      <h2 class="lp-h lp-products__title">{{ section.settings.heading }}</h2>
+      {%- if section.settings.badge != blank -%}
+        <span class="lp-pill lp-products__badge">{{ section.settings.badge }}</span>
+      {%- endif -%}
+    </div>
+
+    <div class="lp-products__grid">
+      {%- if coll != blank and coll.products.size > 0 -%}
+        {%- for product in coll.products limit: limit -%}
+          {%- liquid
+            assign rating = product.metafields.reviews.rating.value | default: default_rating | times: 1.0
+            assign full = rating | floor
+            assign half = rating | minus: full
+            assign next = full | plus: 1
+            assign has_compare = false
+            if product.compare_at_price > product.price
+              assign has_compare = true
+              assign pct = product.price | times: 100.0 | divided_by: product.compare_at_price | round
+              assign pct = 100 | minus: pct
+            endif
+            assign euros = product.price | divided_by: 100 | floor
+            assign cents = product.price | modulo: 100
+            assign cents = cents | prepend: '00' | slice: -2, 2
+          -%}
+          <a class="lp-card" href="{{ product.url }}">
+            <div class="lp-card__media">
+              {%- if product.featured_media != blank -%}
+                <img class="lp-img" src="{{ product.featured_media | image_url: width: 600 }}" alt="{{ product.featured_media.alt | escape }}" width="{{ product.featured_media.width }}" height="{{ product.featured_media.height }}" loading="lazy">
+              {%- else -%}
+                <div class="lp-card__ph">{{ product.title }}</div>
+              {%- endif -%}
+            </div>
+            <p class="lp-card__name">{{ product.title }}</p>
+            <div class="lp-card__pricerow">
+              <span class="lp-card__price">{{ euros }}<sup>,{{ cents }}€</sup></span>
+              {%- if has_compare -%}
+                <span class="lp-card__old">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+                <span class="lp-pill lp-card__save">Économisez {{ pct }}%</span>
+              {%- endif -%}
+            </div>
+            <span class="lp-stars lp-card__stars" aria-hidden="true">
+              {%- for i in (1..5) -%}
+                {%- if i <= full -%}
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 15l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8L10 1.6Z"/></svg>
+                {%- elsif half > 0 and i == next -%}
+                  <svg viewBox="0 0 20 20"><defs><linearGradient id="lpp-{{ section.id }}-{{ forloop.index }}"><stop offset="50%" stop-color="currentColor"/><stop offset="50%" stop-color="#E4E0DA"/></linearGradient></defs><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 15l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8L10 1.6Z" fill="url(#lpp-{{ section.id }}-{{ forloop.index }})"/></svg>
+                {%- else -%}
+                  <svg viewBox="0 0 20 20" fill="#E4E0DA"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 15l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8L10 1.6Z"/></svg>
+                {%- endif -%}
+              {%- endfor -%}
+            </span>
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <div class="lp-card">
+            <div class="lp-card__media"><div class="lp-card__ph">photo — produit {{ i }}</div></div>
+            <p class="lp-card__name">Nom du produit</p>
+            <div class="lp-card__pricerow">
+              <span class="lp-card__price">14<sup>,99€</sup></span>
+              <span class="lp-card__old">24,99€</span>
+              <span class="lp-pill lp-card__save">Économisez 40%</span>
+            </div>
+            <span class="lp-stars lp-card__stars" aria-hidden="true">
+              {%- for s in (1..5) -%}<svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 15l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8L10 1.6Z"/></svg>{%- endfor -%}
+            </span>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="lp-products__cta">
+        <a class="lp-btn lp-btn--outline" href="{% if coll != blank %}{{ coll.url }}{% else %}{{ section.settings.button_link | default: '#' }}{% endif %}">
+          <svg class="lp-btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.5 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm9 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM5.2 15.6a1.9 1.9 0 1 0-1.4-2.3 1.9 1.9 0 0 0 1.4 2.3Zm13.6 0a1.9 1.9 0 1 0-1.4-2.3 1.9 1.9 0 0 0 1.4 2.3ZM12 13c-2.3 0-4.2 1.8-4.7 3.6-.4 1.5.8 2.7 2.3 2.4.8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c1.5.3 2.7-.9 2.3-2.4C16.2 14.8 14.3 13 12 13Z"/></svg>
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .lp-products { background: var(--lp-bg); }
+  .lp-products__inner { padding-block: 40px 46px; }
+  .lp-products__head { text-align: center; }
+  .lp-products__title { font-size: 26px; }
+  .lp-products__badge { margin-top: 14px; }
+  .lp-products__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 20px; margin-top: 30px; }
+
+  .lp-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+  .lp-card__media { border-radius: var(--lp-radius-img); overflow: hidden; aspect-ratio: 1 / 1; background: var(--lp-grey); margin-bottom: 12px; }
+  .lp-card__media .lp-img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+  .lp-card:hover .lp-card__media .lp-img { transform: scale(1.03); }
+  .lp-card__ph { display: grid; place-items: center; height: 100%; font-size: 12px; color: var(--lp-muted); text-align: center; padding: 12px; }
+  .lp-card__name { margin: 0 0 8px; font-size: 15px; font-weight: 600; color: var(--lp-ink); }
+  .lp-card__pricerow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .lp-card__price { font-size: 18px; font-weight: 800; color: var(--lp-coral); }
+  .lp-card__price sup { font-size: 0.55em; font-weight: 800; top: -0.55em; }
+  .lp-card__old { font-size: 12.5px; color: var(--lp-muted); text-decoration: line-through; }
+  .lp-card__save { font-size: 11px; padding: 4px 9px; }
+  .lp-card__stars { margin-top: 9px; }
+  .lp-card__stars svg { width: 14px; height: 14px; }
+
+  .lp-products__cta { display: flex; justify-content: center; margin-top: 34px; }
+
+  @media (min-width: 1000px) {
+    .lp-products__inner { padding-block: 58px 62px; }
+    .lp-products__title { font-size: 32px; }
+    .lp-products__grid { grid-template-columns: repeat(4, 1fr); gap: 30px 26px; margin-top: 40px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Poko LP — Produits",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Tout nos produits pour chiens" },
+    { "type": "text", "id": "badge", "label": "Badge", "default": "Soldes d'été !" },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "products_to_show", "min": 2, "max": 8, "step": 1, "label": "Nombre de produits", "default": 4 },
+    { "type": "range", "id": "default_rating", "min": 0, "max": 5, "step": 0.5, "label": "Note par défaut (sans avis)", "default": 4.5 },
+    { "type": "text", "id": "button_label", "label": "Bouton — texte", "default": "Voir tous nos produits" },
+    { "type": "url", "id": "button_link", "label": "Bouton — lien (si pas de collection)" }
+  ],
+  "presets": [{ "name": "Poko LP — Produits" }]
+}
+{% endschema %}
